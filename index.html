@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--HEAD-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seamus Freitag</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<!--BODY-->
+
+<body class="background">
+    <!--NAVBAR-->
+    <div class="Navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#github">GitHub</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <!--BACKGROUND VIDEO-->
+    <div id="home">
+        <video autoplay muted loop id="Circuit_Video">
+            <source src="images/video/video.mp4" type="video/mp4">
+            <!--DISPLAY MESSAGE IF VIDEO FAILS TO RUN-->
+            Your browser does not support HTML5 video 😔
+        </video>
+    </div>
+
+    <!--VIDEO TEXT-->
+    <div class="Video_Text">
+        <h1 class="gold-text">Seamus Freitag's Portfolio</h1>
+        <p class="center">
+            <q>There’s really no secret about our approach. We keep moving forward—opening up new doors and doing
+                new things—because we’re curious. <br>And curiosity keeps leading us down new paths.
+                <br>We’re always exploring and experimenting. At WED, we call it Imagineering—the blending of
+                creative imagination with technical know-how.
+            </q>
+            <br> -Walt Disney
+        </p>
+    </div>
+
+    <!--ABOUT-->
+    <div class="Row" id="about">
+        <!--LEFT COLUMN-->
+        <div class="Column_2">
+            <img src="images/headshot.png" alt="Headshot image of Seamus">
+        </div>
+        <!--RIGHT COLUMN-->
+        <div class="Column_1">
+            <h1>About</h1>
+            <p>
+                My career started in logistics and analytics, where I learned that every problem leaves clues. Whether
+                it was tracking down operational bottlenecks, analyzing performance data, or finding the cause of a
+                breakdown in a process, I enjoyed digging into systems and figuring out how they worked.
+                <br><br>
+                That same curiosity is what pulled me into cybersecurity.
+                <br><br>
+                Today, I am focused on building a career in Blue Team and Purple Team operations. I enjoy understanding
+                how systems fail, how attackers think, and how organizations can better defend themselves. Through
+                hands-on labs, home lab projects, and continuous learning, I am developing practical skills in threat
+                detection, security operations, system administration, and network security.
+                <br><br>
+                I believe good security comes from equal parts technical knowledge, analytical thinking, and relentless
+                curiosity. The technology will always change, but the mindset of learning, adapting, and solving
+                problems remains the same.
+                <br><br>
+                When I'm not studying cybersecurity, you'll usually find me building projects, experimenting in my home
+                lab, or finding new ways to break things so I can learn how to secure them.
+            </p>
+            <p class="center">
+                <a class="contact-button" href="#contact">Contact me below!</a>
+            </p>
+
+        </div>
+    </div>
+    <!--GITHUB-->
+    <div class="Row" id="github">
+        <!--LEFT COLUMN-->
+        <div class="Column_1">
+            <h1>GitHub</h1>
+            <p>
+                You can find my current projects, labs, and code here:
+            </p>
+            <p class="center">
+                <a class="contact-button" href="https://github.com/SeamusFreitag" target="_blank"
+                    rel="noopener noreferrer">My GitHub Profile</a>
+            </p>
+        </div>
+
+        <!--RIGHT COLUMN-->
+        <div class="Column_2">
+            <a href="https://github.com/SeamusFreitag" target="_blank" rel="noopener noreferrer">
+                <img src="images/GitHub.png" alt="GitHub Logo">
+            </a>
+        </div>
+
+    </div>
+    <!--CONTACT-->
+    <div class="Row" id="contact">
+        <!--CONTACT IMAGE, LEFT COLUMN-->
+        <div class="Column_2 Column_tall">
+            <img src="images/letters.png" alt="Letters and envelopes">
+        </div>
+        <!--CONTACT FORM, RIGHT COLUMN-->
+        <div class="Column_1 Column_tall">
+            <h1>Contact</h1>
+            <form action="https://formspree.io/f/mbdelzdq" method="POST">
+                <label>Email:</label>
+                <input type="email" id="Email" name="Email" placeholder="Please enter your email here">
+
+                <label>Message:</label>
+                <textarea id="Message" name="Message" placeholder="Please write your message here"></textarea>
+
+                <input type="submit" value="SUBMIT">
+            </form>
+        </div>
+
+    </div>
+    <!--Footer section-->
+    <footer>
+        <p class="center">&copy; Seamus Freitag</p>
+    </footer>
+</body>
+
+</html>
