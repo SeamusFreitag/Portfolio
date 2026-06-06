@@ -57,7 +57,7 @@ p {
 }
 
 p:hover {
-    transform: scale(1.01);
+    transform: none;
 }
 
 q {
@@ -209,7 +209,9 @@ img:hover {
     padding: 80px 20px 20px;
     position: relative;
     animation: moveVideoText 1.5s ease;
+    animation-fill-mode: both;
     border-bottom: 1px solid var(--border);
+    overflow: hidden;
 }
 
 @keyframes moveVideoText {
