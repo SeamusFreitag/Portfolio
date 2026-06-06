@@ -22,6 +22,12 @@
     box-sizing: border-box;
 }
 
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -43,7 +49,7 @@ h1 {
 }
 
 h1:hover {
-    transform: scale(1.05);
+    transform: none;
 }
 
 p {
@@ -199,7 +205,9 @@ img:hover {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%;
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
     z-index: -1;
 }
 
