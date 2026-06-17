@@ -46,11 +46,6 @@ h1 {
     color: var(--text);
     text-align: center;
     margin-top: 3%;
-    transition: transform 0.3s ease;
-}
-
-h1:hover {
-    transform: none;
 }
 
 p {
@@ -60,11 +55,6 @@ p {
     font-size: 18px;
     padding-left: 20px;
     padding-right: 20px;
-    transition: transform 0.3s ease;
-}
-
-p:hover {
-    transform: none;
 }
 
 q {
@@ -249,7 +239,6 @@ img:hover {
 }
 
 /* CONTACT FORM STYLING */
-input[type=text],
 input[type=email],
 textarea {
     width: 100%;
@@ -265,7 +254,6 @@ textarea {
     font-family: var(--secondary-font);
 }
 
-input[type=text]:hover,
 input[type=email]:hover,
 textarea:hover {
     box-shadow: 0 0 8px var(--gold-dim) inset;
