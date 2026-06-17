@@ -26,6 +26,7 @@ html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -45,11 +46,6 @@ h1 {
     color: var(--text);
     text-align: center;
     margin-top: 3%;
-    transition: transform 0.3s ease;
-}
-
-h1:hover {
-    transform: none;
 }
 
 p {
@@ -59,11 +55,6 @@ p {
     font-size: 18px;
     padding-left: 20px;
     padding-right: 20px;
-    transition: transform 0.3s ease;
-}
-
-p:hover {
-    transform: none;
 }
 
 q {
@@ -108,6 +99,14 @@ p.center {
     transform: scale(1.08);
 }
 
+.popup-contact-button {
+    position: fixed;
+    right: 75px;
+    bottom: 24px;
+    width: 180px;
+    z-index: 20;
+}
+
 /* NAVBAR STYLING */
 .Navbar {
     position: fixed;
@@ -136,8 +135,7 @@ p.center {
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.Navbar a:hover,
-.Navbar a.active {
+.Navbar a:hover {
     color: var(--gold-bright);
     text-shadow: 0 0 12px rgba(240, 201, 123, 0.4);
 }
@@ -185,18 +183,16 @@ img:hover {
     justify-content: center;
 }
 
-.Column_tall {
-    min-height: 450px;
-}
-
-#github .Column_1 {
+#github .Column_1,
+#linkedin .Column_1  {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#github .Column_1 p {
+#github .Column_1 p,
+#linkedin .Column_1 p {
     text-align: center;
 }
 
@@ -243,7 +239,6 @@ img:hover {
 }
 
 /* CONTACT FORM STYLING */
-input[type=text],
 input[type=email],
 textarea {
     width: 100%;
@@ -259,7 +254,6 @@ textarea {
     font-family: var(--secondary-font);
 }
 
-input[type=text]:hover,
 input[type=email]:hover,
 textarea:hover {
     box-shadow: 0 0 8px var(--gold-dim) inset;
@@ -328,4 +322,55 @@ footer p {
     #Circuit_Video {
         display: none;
     }
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    right: 50px;
+    bottom: 90px;
+    width: 450px;
+    z-index: 30;
+}
+
+.form-container {
+    background-color: rgba(17, 17, 17, 0.88);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.form-buttons input[type="submit"] {
+    width: 260px;
+    margin: 0;
+}
+
+.form-buttons .close-button {
+    width: 120px;
+    margin: 0;
+    padding: 12px 20px;
+    background-color: #777;
+    color: black;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-family: var(--secondary-font);
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: none;
+    transform: none;
+    transition: background-color 0.3s ease;
+}
+
+.form-buttons .close-button:hover {
+    background-color: #999;
+    color: black;
+    transform: none;
 }
