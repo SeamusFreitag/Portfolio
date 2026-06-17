@@ -18,7 +18,7 @@
     <a href="#about">About</a>
     <a href="#github">GitHub</a>
     <a href="#linkedin">LinkedIn</a>
-    <a href="#" onclick="openForm(); return false;">Contact</a>
+    <a href="#" data-open-form>Contact</a>
   </div>
   <!--BACKGROUND VIDEO-->
   <div id="home">
@@ -117,7 +117,7 @@
     </div>
   </div>
   <!--CONTACT BUTTON-->
-  <button class="contact-button popup-contact-button" onclick="openForm()">Contact Me</button>
+  <button class="contact-button popup-contact-button" data-open-form>Contact Me</button>
 
   <div class="form-popup" id="myForm">
     <form action="https://formspree.io/f/mbdelzdq" method="POST" class="form-container">
@@ -130,7 +130,7 @@
       <textarea id="Message" name="Message" placeholder="Please write your message here" required></textarea>
 
       <div class="form-buttons">
-        <button type="button" class="close-button" onclick="closeForm()">CLOSE</button>
+        <button type="button" class="close-button" data-close-form>CLOSE</button>
         <input type="submit" value="SUBMIT">
       </div>
     </form>
