@@ -30,7 +30,7 @@
 
   <!--VIDEO TEXT-->
   <div class="Video_Text">
-    <h1 class="gold-text">Seamus Freitag's Portfolio</h1>
+    <h1 class="gold-text">Seamus Freitag</h1>
     <p class="center">
       <q>There’s really no secret about our approach. We keep moving forward—opening up new doors and doing
         new things—because we’re curious. <br>And curiosity keeps leading us down new paths.
@@ -95,7 +95,23 @@
 
   </div>
   <!--CONTACT BUTTON-->
-  <button class="contact-button popup-contact-button" onclick="openForm()">Contact Me!</button>
+  <button class="contact-button popup-contact-button" onclick="openForm()">Contact Me</button>
+
+  <div class="form-popup" id="myForm">
+    <form action="https://formspree.io/f/mbdelzdq" method="POST" class="form-container">
+      <h1>Contact</h1>
+
+      <label for="Email">Email:</label>
+      <input type="email" id="Email" name="Email" placeholder="Please enter your email here" required>
+
+      <label for="Message">Message:</label>
+      <textarea id="Message" name="Message" placeholder="Please write your message here" required></textarea>
+
+      <input type="submit" value="SUBMIT">
+
+      <button type="button" class="close-button" onclick="closeForm()">CLOSE</button>
+    </form>
+  </div>
   <!--Footer section-->
   <footer>
     <p class="center">&copy; Seamus Freitag</p>
