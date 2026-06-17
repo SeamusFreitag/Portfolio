@@ -343,31 +343,48 @@ footer p {
     position: fixed;
     right: 50px;
     bottom: 90px;
-    width: 360px;
+    width: 450px;
     z-index: 30;
 }
 
 .form-container {
-    background-color: rgba(17, 17, 17, 0.98);
+    background-color: rgba(17, 17, 17, 0.88);
     border: 1px solid var(--border);
     border-radius: 5px;
     padding: 20px;
 }
 
-.close-button {
-    width: 100%;
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
     margin-top: 10px;
-    padding: 12px 20px;
-    background-color: var(--panel-light);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-family: var(--secondary-font);
-    font-weight: bold;
-    cursor: pointer;
 }
 
-.close-button:hover {
-    background-color: var(--gold-bright);
-    color: var(--bg);
+.form-buttons input[type="submit"] {
+    width: 260px;
+    margin: 0;
+}
+
+.form-buttons .close-button {
+    width: 120px;
+    margin: 0;
+    padding: 12px 20px;
+    background-color: #777;
+    color: black;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-family: var(--secondary-font);
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: none;
+    transform: none;
+    transition: background-color 0.3s ease;
+}
+
+.form-buttons .close-button:hover {
+    background-color: #999;
+    color: black;
+    transform: none;
 }
