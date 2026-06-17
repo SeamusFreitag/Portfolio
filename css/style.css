@@ -145,8 +145,7 @@ p.center {
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.Navbar a:hover,
-.Navbar a.active {
+.Navbar a:hover {
     color: var(--gold-bright);
     text-shadow: 0 0 12px rgba(240, 201, 123, 0.4);
 }
@@ -192,10 +191,6 @@ img:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.Column_tall {
-    min-height: 450px;
 }
 
 #github .Column_1,
