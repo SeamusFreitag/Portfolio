@@ -110,9 +110,9 @@ p.center {
 
 .popup-contact-button {
     position: fixed;
-    right: 24px;
+    right: 75px;
     bottom: 24px;
-    width: auto;
+    width: 180px;
     z-index: 20;
 }
 
