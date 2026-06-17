@@ -108,6 +108,14 @@ p.center {
     transform: scale(1.08);
 }
 
+.popup-contact-button {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: auto;
+    z-index: 20;
+}
+
 /* NAVBAR STYLING */
 .Navbar {
     position: fixed;
