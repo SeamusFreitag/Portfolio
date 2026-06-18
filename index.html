@@ -1,142 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seamus Freitag</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+<meta charset="UTF-8">
+<title>Seamus Freitag</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background:#09080c; color:#e8dcc8; font-family:'Cormorant Garamond',serif; text-align:center; }
+  h1 { font-size:2.4rem; font-weight:600; margin:0 0 12px; letter-spacing:1px; }
+  .line { width:80px; height:2px; background:linear-gradient(90deg,#c0871e,#e0a838); margin:18px 0; }
+  p { font-family:'Space Mono',monospace; font-size:0.8rem; letter-spacing:2px; text-transform:uppercase;
+    color:#4a8a98; margin:0; }
+</style>
 </head>
-
-<!--BODY-->
-
-<body class="background">
-  <!--NAVBAR-->
-  <div class="Navbar">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#github">GitHub</a>
-    <a href="#linkedin">LinkedIn</a>
-    <a href="#" data-open-form>Contact</a>
-  </div>
-  <!--BACKGROUND VIDEO-->
-  <div id="home">
-    <video autoplay muted loop id="Circuit_Video">
-      <source src="images/video/video.mp4" type="video/mp4">
-      <!--DISPLAY MESSAGE IF VIDEO FAILS TO RUN-->
-      Your browser does not support HTML5 video 😔
-    </video>
-  </div>
-
-  <!--VIDEO TEXT-->
-  <div class="Video_Text">
-    <h1 class="gold-text">Seamus Freitag</h1>
-    <p class="center">
-      <q>There’s really no secret about our approach. We keep moving forward—opening up new doors and doing
-        new things—because we’re curious. <br>And curiosity keeps leading us down new paths.
-        <br>We’re always exploring and experimenting. At WED, we call it Imagineering—the blending of
-        creative imagination with technical know-how.
-      </q>
-      <br> -Walt Disney
-    </p>
-  </div>
-
-  <!--ABOUT-->
-  <div class="Row" id="about">
-    <!--LEFT COLUMN-->
-    <div class="Column_2">
-      <img src="images/headshot.png" alt="Headshot image of Seamus">
-    </div>
-    <!--RIGHT COLUMN-->
-    <div class="Column_1">
-      <h1>About</h1>
-      <p>
-        My career started in logistics and analytics, where I learned that every problem leaves clues. Whether
-        it was tracking down operational bottlenecks, analyzing performance data, or finding the cause of a
-        breakdown in a process, I enjoyed digging into systems and figuring out how they worked.
-        <br><br>
-        That same curiosity is what pulled me into cybersecurity.
-        <br><br>
-        Today, I am focused on building a career in Blue Team and Purple Team operations. I enjoy understanding
-        how systems fail, how attackers think, and how organizations can better defend themselves. Through
-        hands-on labs, home lab projects, and continuous learning, I am developing practical skills in threat
-        detection, security operations, system administration, and network security.
-        <br><br>
-        I believe good security comes from equal parts technical knowledge, analytical thinking, and relentless
-        curiosity. The technology will always change, but the mindset of learning, adapting, and solving
-        problems remains the same.
-        <br><br>
-        When I'm not studying cybersecurity, you'll usually find me building projects, experimenting in my home
-        lab, or finding new ways to break things so I can learn how to secure them.
-      </p>
-
-    </div>
-  </div>
-  <!--GITHUB-->
-  <div class="Row" id="github">
-    <!--LEFT COLUMN-->
-    <div class="Column_1">
-      <h1>GitHub</h1>
-      <p>
-        You can find my current projects, labs, and code here:
-      </p>
-      <p class="center">
-        <a class="contact-button" href="https://github.com/SeamusFreitag" target="_blank" rel="noopener noreferrer">My
-          GitHub Profile</a>
-      </p>
-    </div>
-
-    <!--RIGHT COLUMN-->
-    <div class="Column_2">
-      <a href="https://github.com/SeamusFreitag" target="_blank" rel="noopener noreferrer">
-        <img src="images/github.png" alt="GitHub Logo">
-      </a>
-    </div>
-
-  </div>
-  <!--LINKEDIN-->
-  <div class="Row" id="linkedin">
-    <!--LEFT COLUMN-->
-    <div class="Column_2">
-      <a href="https://www.linkedin.com/in/seamus-f-19209017a/" target="_blank" rel="noopener noreferrer">
-        <img src="images/linkedin.png" alt="LinkedIn Logo">
-      </a>
-    </div>
-
-    <!--RIGHT COLUMN-->
-    <div class="Column_1">
-      <h1>LinkedIn</h1>
-      <p>
-        You can view my professional experience and connect with me here:
-      </p>
-      <p class="center">
-        <a class="contact-button" href="https://www.linkedin.com/in/seamus-f-19209017a/" target="_blank"
-          rel="noopener noreferrer">My LinkedIn Profile</a>
-      </p>
-    </div>
-  </div>
-  <!--CONTACT BUTTON-->
-  <button class="contact-button popup-contact-button" data-open-form>Contact Me</button>
-
-  <div class="form-popup" id="myForm">
-    <form action="https://formspree.io/f/mbdelzdq" method="POST" class="form-container">
-      <h1>Contact</h1>
-
-      <label for="Email">Email:</label>
-      <input type="email" id="Email" name="Email" placeholder="Please enter your email here" required>
-
-      <label for="Message">Message:</label>
-      <textarea id="Message" name="Message" placeholder="Please write your message here" required></textarea>
-
-      <div class="form-buttons">
-        <button type="button" class="close-button" data-close-form>CLOSE</button>
-        <input type="submit" value="SUBMIT">
-      </div>
-    </form>
-  </div>
-  <!--Footer section-->
-  <footer>
-    <p class="center">Seamus Freitag</p>
-  </footer>
-  <script src="js/script.js"></script>
+<body>
+  <h1>Seamus Freitag</h1>
+  <div class="line"></div>
+  <p>Back soon</p>
 </body>
 </html>
