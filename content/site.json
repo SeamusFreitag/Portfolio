@@ -1,0 +1,65 @@
+{
+  "domain": "https://seamusf.com",
+  "logo": "S. Freitag",
+  "firstName": "Seamus",
+  "lastName": "Freitag",
+  "fullName": "Seamus Freitag",
+  "role": "Cybersecurity & IT",
+  "heroByline": "I learn how systems work, how they break, and how to keep them running. Lab work, security projects, and hardware, documented here.",
+  "metaDescription": "Seamus Freitag, cybersecurity and IT in Portland, OR. Security, systems, and hardware projects.",
+  "about": {
+    "headline": "Find what's broken.<br><em>Make it stronger.</em>",
+    "body": "I've spent ten years as the person people call when something breaks: a missed deadline, a failing process, a team that needs training. Security asks for the same thing: stay calm, find the cause, fix it right. I've trained in web app testing, packet analysis, and malware triage, and I keep building on those skills in a home lab. What pulls me toward threat hunting is who's on the other end. The people getting phished, scammed, and robbed are often the ones least able to defend themselves, and I want to be the one finding the threat before it reaches them. I'm looking for a role in security, IT, or systems where I can keep solving problems and keep growing."
+  },
+  "skills": [
+    {
+      "label": "Security",
+      "items": [
+        "Burp Suite",
+        "OWASP Top 10",
+        "Wireshark / PCAP Analysis",
+        "Malware Analysis",
+        "Log Analysis",
+        "Suricata",
+        "Snort",
+        "Vulnerability Management",
+        "Incident Reporting",
+        "Hardware Security"
+      ]
+    },
+    {
+      "label": "Development",
+      "items": [
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Node.js / Express",
+        "HTML / CSS",
+        "SQL (T-SQL, SQL Server)",
+        "Git / GitHub"
+      ]
+    },
+    {
+      "label": "Systems & IT",
+      "items": [
+        "Linux Administration",
+        "Windows Server",
+        "TCP/IP, DNS, DHCP, Subnetting",
+        "Docker",
+        "Virtualization",
+        "AWS / Azure",
+        "Troubleshooting",
+        "Agile / Scrum"
+      ]
+    }
+  ],
+  "links": {
+    "github": "https://github.com/SeamusFreitag",
+    "linkedin": "https://www.linkedin.com/in/seamusf/",
+    "resume": "/resume.pdf",
+    "email": "s@seamusf.com"
+  },
+  "footerLeft": "Seamus Freitag",
+  "footerRight": "Portland, OR"
+}

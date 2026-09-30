@@ -1,0 +1,16 @@
+{
+  "name": "seamus-portfolio",
+  "version": "2.0.0",
+  "description": "Portfolio + Blog + Projects",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/dev.mjs"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0"
+  }
+}

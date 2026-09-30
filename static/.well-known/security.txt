@@ -1,0 +1,6 @@
+Contact: mailto:s@seamusf.com
+Expires: 2027-09-26T07:00:00.000Z
+Encryption: https://seamusf.com/.well-known/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://seamusf.com/.well-known/security.txt
+# Key fingerprint: D8C2 F109 F140 817E C307 78E7 CE25 0344 4C01 CFAE
