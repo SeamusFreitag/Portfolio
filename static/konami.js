@@ -103,9 +103,9 @@
                 label--;
                 ctx.globalAlpha = Math.min(1, label / 20);
                 ctx.fillStyle = RED;
-                ctx.font = '700 12px "Space Mono", "Courier New", monospace';
+                ctx.font = '700 16px "Space Mono", "Courier New", monospace';
                 ctx.textAlign = 'center';
-                ctx.fillText('+100000 STEEEEZE', x + 24, top - 12 - (70 - label) * 0.4);
+                ctx.fillText('WUSSSSSUUUUP', x + 24, top - 12 - (70 - label) * 0.4);
                 ctx.globalAlpha = 1;
             }
 
