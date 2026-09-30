@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>admin</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+
+<body>
+  <main class="secret">
+    <a href="/" class="back-link secret-back">← back to the real site</a>
+
+    <section class="skate">
+      <div class="skate-head">
+        <span class="skate-title">kickflip.exe</span>
+        <span class="skate-score" id="skate-score">000000</span>
+      </div>
+      <canvas id="skate-canvas" class="skate-canvas" tabindex="0"
+        aria-label="Skateboard game. Press space, up arrow, or tap to jump."></canvas>
+      <p class="skate-hint">space / ↑ / tap to kickflip</p>
+    </section>
+
+    <p class="secret-flag">flag{please_hire_me}</p>
+  </main>
+  <script src="/admin/skate.js"></script>
+</body>
+
+</html>
