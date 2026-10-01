@@ -5,11 +5,11 @@
   "lastName": "Freitag",
   "fullName": "Seamus Freitag",
   "role": "Cybersecurity & IT",
-  "heroByline": "I learn how systems work, how they break, and how to keep them running. Lab work, security projects, and hardware, documented here.",
+  "heroByline": "I learn how systems work, how they break, and how to keep them running. Projects and lab work, documented here as I go.",
   "metaDescription": "Seamus Freitag, cybersecurity and IT in Portland, OR. Security, systems, and hardware projects.",
   "about": {
     "headline": "Find what's broken.<br><em>Make it stronger.</em>",
-    "body": "I've spent ten years as the person people call when something breaks: a missed deadline, a failing process, a team that needs training. Security asks for the same thing: stay calm, find the cause, fix it right. I've trained in web app testing, packet analysis, and malware triage, and I keep building on those skills in a home lab. What pulls me toward threat hunting is who's on the other end. The people getting phished, scammed, and robbed are often the ones least able to defend themselves, and I want to be the one finding the threat before it reaches them."
+    "body": "I grew up on a computer. As a kid I was always on one, figuring out how it worked, fixing what broke, and becoming the one family and friends called when theirs acted up. That never really stopped. I spent the last ten years in operations as the person people called when something went wrong: a deadline about to be missed, a process falling apart, a team that needed training. I got good at staying calm, finding the cause, and fixing it. But the pull was always back toward technology, and toward keeping it safe. So I went all in on cybersecurity. Now I'm trained in networking, systems administration, web app security, and defensive tools, and I keep learning in my home lab, building and testing to see how things hold up."
   },
   "skills": [
     {
@@ -17,13 +17,19 @@
       "items": [
         "Burp Suite",
         "OWASP Top 10",
+        "Nmap",
         "Wireshark / PCAP Analysis",
-        "Malware Analysis",
-        "Log Analysis",
-        "Suricata",
+        "Splunk / Log Analysis",
         "Snort",
+        "Suricata",
+        "Firewalls / IDS / IPS",
+        "Metasploit",
+        "Kali Linux",
+        "Malware Analysis",
+        "Incident Response",
         "Vulnerability Management",
-        "Incident Reporting",
+        "IAM (SSO, MFA)",
+        "PKI / Certificates",
         "Hardware Security"
       ]
     },
@@ -45,10 +51,13 @@
       "items": [
         "Linux Administration",
         "Windows Server",
+        "PowerShell / Bash",
         "TCP/IP, DNS, DHCP, Subnetting",
+        "Network Security",
         "Docker",
         "Virtualization",
         "AWS / Azure",
+        "Microsoft 365",
         "Troubleshooting",
         "Agile / Scrum"
       ]
