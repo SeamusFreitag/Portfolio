@@ -258,7 +258,7 @@ function pageHome() {
         <span class="contact-name">View in browser</span>
         <span class="contact-arrow">↗</span>
       </a>
-      <a href="${esc(links.resume)}" download="SeamusFreitag_CV.pdf" class="contact-link resume-option">
+      <a href="${esc(links.resume)}" download="SeamusFreitagResume.pdf" class="contact-link resume-option">
         <span class="contact-sigil">[dl]</span>
         <span class="contact-name">Download PDF</span>
         <span class="contact-arrow">↓</span>
