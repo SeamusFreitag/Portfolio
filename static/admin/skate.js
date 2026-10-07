@@ -363,7 +363,7 @@
 
   function loop() {
     cancelAnimationFrame(raf);
-    var STEP = 1000 / 90, acc = 0, last = 0;
+    var STEP = 1000 / 60, acc = 0, last = 0;
     var step = function (now) {
       if (state !== 'running') { draw(); return; }
       acc += Math.min(now - last, 100);
