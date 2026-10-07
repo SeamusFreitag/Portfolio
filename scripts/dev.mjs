@@ -1,7 +1,3 @@
-/**
- * dev.mjs — build, then watch for changes and rebuild, while serving dist/.
- * fs.watch with { recursive: true } is supported on Windows and macOS.
- */
 import { spawn } from 'node:child_process';
 import { watch } from 'node:fs';
 import { join, dirname } from 'node:path';

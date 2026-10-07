@@ -1,8 +1,3 @@
-/**
- * serve.mjs — minimal static file server for local preview of dist/.
- * Resolves clean URLs (/projects/ -> projects/index.html) the same way the
- * production static hosts do, and serves 404.html for misses.
- */
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { join, dirname, extname } from 'node:path';
