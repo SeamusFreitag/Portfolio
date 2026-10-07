@@ -103,7 +103,7 @@
   var RAIL_TOP = GROUND - RAIL_H;
   var PAD = 6;
 
-  var state, player, obstacles, sparks, speed, score, best, frame, spawnIn, groundOffset, raf, bgOffset = 0;
+  var state, player, obstacles, sparks, speed, score, best, frame, spawnIn, groundOffset, raf, bgOffset = 0, prevGround = 0, prevBg = 0, alpha = 1;
 
   var SKY = (function () {
     var list = [], x = 0;
@@ -118,11 +118,11 @@
     return { list: list, width: x };
   })();
 
-  function drawSkyline() {
+  function drawSkyline(off) {
     for (var rep = 0; rep < 2; rep++) {
       for (var i = 0; i < SKY.list.length; i++) {
         var b = SKY.list[i];
-        var bx = Math.round(b.x - bgOffset + rep * SKY.width);
+        var bx = Math.round(b.x - off + rep * SKY.width);
         if (bx > W || bx + b.w < 0) continue;
         ctx.fillStyle = '#232323';
         ctx.fillRect(bx, GROUND - b.h, b.w, b.h);
@@ -135,7 +135,7 @@
   try { best = parseInt(localStorage.getItem('skate-best') || '0', 10) || 0; } catch (e) { best = 0; }
 
   function reset() {
-    player = { x: 70, y: GROUND - SK_H, vy: 0, onGround: true, airT: 0, rail: null };
+    player = { x: 70, y: GROUND - SK_H, py: GROUND - SK_H, vy: 0, onGround: true, airT: 0, rail: null };
     obstacles = [];
     sparks = [];
     speed = 5;
@@ -144,6 +144,8 @@
     spawnIn = 60;
     groundOffset = 0;
     bgOffset = 0;
+    prevGround = 0;
+    prevBg = 0;
   }
 
   function resize() {
@@ -176,12 +178,12 @@
   function spawn() {
     if (score > 150 && Math.random() < 0.25) {
       var len = Math.round((240 + Math.random() * 160) * speed / 5);
-      obstacles.push({ type: 'rail', x: W + 20, w: len });
+      obstacles.push({ type: 'rail', x: W + 20, px: W + 20, w: len });
       spawnIn = Math.round(len / speed) + 45 + Math.round(Math.random() * 30);
       return;
     }
     var stack = score > 400 && Math.random() < 0.3 ? 2 : 1;
-    obstacles.push({ type: 'can', x: W + 20, w: CAN_W, stack: stack });
+    obstacles.push({ type: 'can', x: W + 20, px: W + 20, w: CAN_W, stack: stack });
     var gap = 55 + Math.random() * 70 - Math.min(speed * 3, 30);
     spawnIn = Math.max(38, Math.round(gap));
   }
@@ -192,7 +194,12 @@
 
   function update() {
     frame++;
-    speed = Math.min(5 + score / 360, 18);
+    player.py = player.y;
+    prevGround = groundOffset;
+    prevBg = bgOffset;
+    for (var q = 0; q < obstacles.length; q++) obstacles[q].px = obstacles[q].x;
+    for (var r = 0; r < sparks.length; r++) { sparks[r].px = sparks[r].x; sparks[r].py = sparks[r].y; }
+    speed = Math.min(5 + score / 250, 13);
     score += (player.rail ? 2 : 1) * speed / 10;
 
     var prevBottom = player.y + SK_H;
@@ -233,8 +240,8 @@
       if (--sp.life <= 0) sparks.splice(k, 1);
     }
 
-    groundOffset = (groundOffset + speed) % 40;
-    bgOffset = (bgOffset + speed * 0.45) % SKY.width;
+    groundOffset += speed;
+    bgOffset += speed * 0.45;
 
     var bottom = player.y + SK_H;
     for (var j = 0; j < obstacles.length; j++) {
@@ -264,9 +271,10 @@
 
   function spawnSparks() {
     for (var n = 0; n < 2; n++) {
+      var sx = player.x + 10 + Math.random() * 12;
       sparks.push({
-        x: player.x + 10 + Math.random() * 12,
-        y: RAIL_TOP,
+        x: sx, px: sx,
+        y: RAIL_TOP, py: RAIL_TOP,
         vx: -1.5 - Math.random() * 3,
         vy: -1 - Math.random() * 2.5,
         life: 10 + Math.floor(Math.random() * 8)
@@ -291,35 +299,39 @@
     ctx.fillText(str, x, y);
   }
 
-  function drawRail(o) {
+  function drawRail(o, ox) {
     ctx.fillStyle = DIM;
-    ctx.fillRect(Math.round(o.x + 8), RAIL_TOP, PX, RAIL_H);
-    ctx.fillRect(Math.round(o.x + o.w - 8 - PX), RAIL_TOP, PX, RAIL_H);
-    ctx.fillRect(Math.round(o.x + 4), GROUND - PX, PX * 3, PX);
-    ctx.fillRect(Math.round(o.x + o.w - 4 - PX * 3), GROUND - PX, PX * 3, PX);
+    ctx.fillRect(Math.round(ox + 8), RAIL_TOP, PX, RAIL_H);
+    ctx.fillRect(Math.round(ox + o.w - 8 - PX), RAIL_TOP, PX, RAIL_H);
+    ctx.fillRect(Math.round(ox + 4), GROUND - PX, PX * 3, PX);
+    ctx.fillRect(Math.round(ox + o.w - 4 - PX * 3), GROUND - PX, PX * 3, PX);
     ctx.fillStyle = STEEL;
-    ctx.fillRect(Math.round(o.x), RAIL_TOP, Math.round(o.w), PX);
+    ctx.fillRect(Math.round(ox), RAIL_TOP, Math.round(o.w), PX);
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
-    drawSkyline();
+    var a = alpha;
+    var L = function (p, c) { return p == null ? c : p + (c - p) * a; };
+    var gOff = L(prevGround, groundOffset) % 40;
+    drawSkyline(L(prevBg, bgOffset) % SKY.width);
 
     ctx.fillStyle = DIM;
     ctx.fillRect(0, GROUND, W, 1);
     ctx.fillStyle = GHOST;
-    for (var gx = -groundOffset; gx < W; gx += 40) {
+    for (var gx = -gOff; gx < W; gx += 40) {
       ctx.fillRect(gx, GROUND + 10, 14, 2);
       ctx.fillRect(gx + 22, GROUND + 22, 6, 2);
     }
 
     for (var i = 0; i < obstacles.length; i++) {
       var o = obstacles[i];
+      var ox = L(o.px, o.x);
       if (o.type === 'rail') {
-        drawRail(o);
+        drawRail(o, ox);
       } else {
         for (var s = 0; s < o.stack; s++) {
-          drawSprite(CAN, o.x, GROUND - CAN_H * (s + 1), CAN_COLORS);
+          drawSprite(CAN, ox, GROUND - CAN_H * (s + 1), CAN_COLORS);
         }
       }
     }
@@ -337,16 +349,17 @@
       body = Math.floor(frame / 8) % 2 ? BODY_A : BODY_B;
       board = BOARD_FLIP[0];
     }
-    drawSprite(body, player.x, player.y, COLORS);
-    drawSprite(board, player.x, player.y + BODY_H + drop, COLORS);
+    var pyy = L(player.py, player.y);
+    drawSprite(body, player.x, pyy, COLORS);
+    drawSprite(board, player.x, pyy + BODY_H + drop, COLORS);
 
     for (var k = 0; k < sparks.length; k++) {
       ctx.fillStyle = sparks[k].life > 6 ? WHITE : RED;
-      ctx.fillRect(Math.round(sparks[k].x), Math.round(sparks[k].y), 3, 3);
+      ctx.fillRect(Math.round(L(sparks[k].px, sparks[k].x)), Math.round(L(sparks[k].py, sparks[k].y)), 3, 3);
     }
 
     if (player.rail && state === 'running') {
-      text('STEEEEEEZYYYY', player.x + SK_W / 2, player.y - 10, RED, 11);
+      text('STEEEEEEZYYYY', player.x + SK_W / 2, pyy - 10, RED, 11);
     }
 
     if (state === 'ready') {
@@ -361,14 +374,17 @@
     scoreEl.textContent = String(Math.floor(score || 0)).padStart(6, '0');
   }
 
+  // Fixed 60Hz physics with render interpolation: same game speed and
+  // smooth motion at any refresh rate (30, 60, 120, 144, 165Hz...).
   function loop() {
     cancelAnimationFrame(raf);
     var STEP = 1000 / 60, acc = 0, last = 0;
     var step = function (now) {
-      if (state !== 'running') { draw(); return; }
+      if (state !== 'running') { alpha = 1; draw(); return; }
       acc += Math.min(now - last, 100);
       last = now;
       while (acc >= STEP && state === 'running') { update(); acc -= STEP; }
+      alpha = state === 'running' ? acc / STEP : 1;
       draw();
       raf = requestAnimationFrame(step);
     };
