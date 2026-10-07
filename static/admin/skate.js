@@ -103,7 +103,34 @@
   var RAIL_TOP = GROUND - RAIL_H;
   var PAD = 6;
 
-  var state, player, obstacles, sparks, speed, score, best, frame, spawnIn, groundOffset, raf;
+  var state, player, obstacles, sparks, speed, score, best, frame, spawnIn, groundOffset, raf, bgOffset = 0;
+
+  var SKY = (function () {
+    var list = [], x = 0;
+    while (x < 1400) {
+      var w = 48 + Math.floor(Math.random() * 6) * 12;
+      var h = 40 + Math.floor(Math.random() * 10) * 10;
+      var win = [];
+      for (var wy = 10; wy < h - 10; wy += 16) for (var wx = 8; wx < w - 8; wx += 14) if (Math.random() < 0.25) win.push([wx, wy]);
+      list.push({ x: x, w: w, h: h, win: win });
+      x += w + 6;
+    }
+    return { list: list, width: x };
+  })();
+
+  function drawSkyline() {
+    for (var rep = 0; rep < 2; rep++) {
+      for (var i = 0; i < SKY.list.length; i++) {
+        var b = SKY.list[i];
+        var bx = Math.round(b.x - bgOffset + rep * SKY.width);
+        if (bx > W || bx + b.w < 0) continue;
+        ctx.fillStyle = '#232323';
+        ctx.fillRect(bx, GROUND - b.h, b.w, b.h);
+        ctx.fillStyle = GHOST;
+        for (var k = 0; k < b.win.length; k++) ctx.fillRect(bx + b.win[k][0], GROUND - b.h + b.win[k][1], 6, 6);
+      }
+    }
+  }
 
   try { best = parseInt(localStorage.getItem('skate-best') || '0', 10) || 0; } catch (e) { best = 0; }
 
@@ -116,6 +143,7 @@
     frame = 0;
     spawnIn = 60;
     groundOffset = 0;
+    bgOffset = 0;
   }
 
   function resize() {
@@ -206,6 +234,7 @@
     }
 
     groundOffset = (groundOffset + speed) % 40;
+    bgOffset = (bgOffset + speed * 0.45) % SKY.width;
 
     var bottom = player.y + SK_H;
     for (var j = 0; j < obstacles.length; j++) {
@@ -274,6 +303,7 @@
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
+    drawSkyline();
 
     ctx.fillStyle = DIM;
     ctx.fillRect(0, GROUND, W, 1);
