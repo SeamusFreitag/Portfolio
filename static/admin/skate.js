@@ -363,13 +363,16 @@
 
   function loop() {
     cancelAnimationFrame(raf);
-    var step = function () {
+    var STEP = 1000 / 60, acc = 0, last = 0;
+    var step = function (now) {
       if (state !== 'running') { draw(); return; }
-      update();
+      acc += Math.min(now - last, 100);
+      last = now;
+      while (acc >= STEP && state === 'running') { update(); acc -= STEP; }
       draw();
       raf = requestAnimationFrame(step);
     };
-    raf = requestAnimationFrame(step);
+    raf = requestAnimationFrame(function (t) { last = t; step(t); });
   }
 
   document.addEventListener('keydown', function (e) {
