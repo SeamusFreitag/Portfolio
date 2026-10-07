@@ -164,7 +164,7 @@
 
   function update() {
     frame++;
-    speed = Math.min(5 + score / 250, 13);
+    speed = Math.min(5 + score / 360, 18);
     score += (player.rail ? 2 : 1) * speed / 10;
 
     var prevBottom = player.y + SK_H;
